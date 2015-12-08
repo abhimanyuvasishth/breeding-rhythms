@@ -22,8 +22,6 @@ app.use(bodyParser.json());
 var port = process.env.PORT || 3000;
 // Start the server & save it to a var
 var server = app.listen(port);
-//Pass the server var as an arg to the 'io' init requirement
-var io = require('socket.io')(server);
 console.log('Express started on port ' + port);
 
 /*---------------
@@ -41,6 +39,7 @@ ROUTES
 -----*/
 //Main Page Route
 app.get("/", function(req, res){
+	res.header('Access-Control-Allow-Origin', "*");
 	res.render('index');
 });
 
