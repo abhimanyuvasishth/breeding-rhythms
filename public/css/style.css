@@ -1,0 +1,190 @@
+html,body{
+	/*margin: 0;
+	padding: 0;*/
+	background: black;
+	text-align: center;
+	overflow:hidden;
+}
+
+#headerMenu{
+    position: fixed;
+    display: block;
+    background-color: black;
+    width: 100%;
+    left: 0;
+    top: 0;
+    z-index: 90;
+    border-top: 0;
+}
+
+.header{
+	display: inline-block;
+	/*font-weight:lighter;*/
+	text-align: center;
+	text-decoration: none;
+	margin: 2px 50px;
+	font-family:'Lato', sans-serif;
+	/*font-family:'Caveat brush', cursive;*/
+	/*font-family:'Caveat';*/
+	/*font-family:'Dekko';*/
+	text-transform: uppercase;
+	font-size: 17px;
+	color: white;
+	padding: 2px 12px;
+}
+
+.header:hover {
+	color: #9afe2e;
+	cursor: pointer;
+}
+
+#stringSubmit {
+	color: #9afe2e;
+}
+
+#slider{
+	width: 40%;
+	float: center;
+	/*position: fixed;*/
+	/*z-index: 100;*/
+	display: inline-block;	
+}
+
+#container{
+	margin-bottom: 0;
+}
+
+#likeRhythms, #dislikeRhythms, #playButton, #pauseButton{
+	display: inline-block;
+	font-family: Lato;
+	position: fixed;
+	color: white;
+	z-index: 101;
+	top: 40%;
+}
+
+#dislikeButton:hover{
+	cursor: pointer;
+	color: #ff1a3c;
+}
+
+#likeButton:hover{
+	cursor: pointer;
+	color: #0057e7;
+}
+
+#pauseButton{
+	left:49%;
+}
+
+#likeRhythms{
+	left: 20%;
+}
+
+#dislikeRhythms{
+	right: 20%;
+}
+
+#playButton, #pauseButton{
+	left: 49.5%;
+	text-align: center;
+}
+
+#playButton:hover{
+	cursor: pointer;
+	color: #7fff00;
+}
+
+#pauseButton:hover{
+	cursor: pointer;
+	color: #7fff00;
+}
+
+#string{
+	color: white;
+}
+
+#generation{
+	color: white;
+}
+
+#tempo{
+	color: white;
+}
+
+#total{
+	color: white;
+	display: block;	
+}
+
+#like, #dislike{
+	display: block;	
+	font-family: Lato;
+	font-size: 50px;
+}
+
+#like{
+	color: #0057e7;
+}
+
+#dislike{
+	color: #ff1a3c;
+}
+
+/*--------------------------------Form-------------------------------------*/
+.form{
+	border-radius:10px;
+	padding:20px 30px;
+	font-family: Lato;
+	width:350px;
+	margin:20px 250px 0 35px;
+}
+
+.button{
+	display: inline-block;
+	width: 49%;
+	text-align: center;
+	font-size: 18px;
+	color: white;
+	background-color:#101010;
+	border-radius:2px;
+	
+}
+
+.button:hover{
+	color: #9afe2e;
+	background-color:#111111;
+	cursor: pointer;
+}
+
+input{
+	text-align: center;
+	font-size: 18px;
+	font-family: Lato;
+	width:99%;
+	height:35px;
+	margin-top:5px;
+	border:1px solid #999;
+	border-radius:3px;
+}
+
+#submitDiv{
+	opacity:0.92;
+	position: absolute;
+	top: 0px;
+	left: 0px;
+	height: 100%;
+	width: 100%;
+	display:none;
+}
+
+#submitForm{
+	width:350px;
+	background-color:black;
+	position: relative;
+	border: 5px solid #9afe2e;
+	left: 50%;
+	top: 50%;
+	margin-left:-210px;
+	margin-top:-158px;
+}

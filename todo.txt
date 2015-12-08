@@ -1,0 +1,17 @@
+FEEDBACK
+
+	1. Create
+		a. Musical instruments
+		b. Click on circles
+
+	2. UI
+		a. Country auto complete
+		b. Fix colors
+		c. Fix top header
+		d. Window resize
+		e. Get rid of background colors if form is visible
+
+	3. Database for saving data
+		a. Use data as the initial rhythms
+		b. Fix routes
+

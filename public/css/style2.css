@@ -1,0 +1,11 @@
+html { 
+  background-color: black; 
+}
+
+#bg {
+  position: fixed; 
+  left: 10%; 
+	
+  /* Preserve aspect ratio */
+  min-width: 80%;
+}
