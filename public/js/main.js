@@ -19,8 +19,7 @@ var soundList = [];
 var playSeq;
 var seqCounter = 0;
 
-var colorList = ["#9afe2e", "#0057e7", "#d62d20", "#ffa700", "#6497b1", "#ff0097", "#a200ff", "#1ba1e2", "#f09609", "#8ae429", "#00aba9", "#a32020", "#ffff00", 
-				"#7fff00", "#9600ff", "#47f26d", "#dc6900", "#66a3ff", "#ffff66", "#33ff33"];
+var colorList = ["#9afe2e", "#d62d20", "#ffa700", "#ff0097", "#a200ff", "#66a3ff", "ffffff", "4254f2"];
 
 // ------------------D3 append SVG and make circles-----------------------
 
@@ -85,11 +84,10 @@ function draw(){
 // ------------------Change color and style of things-----------------------
 	
 function makeHTML(){
-	$("#string").html(soundString);
-	$("#generation").html("Generation: " + generation);
-	$("#total").html("Rhythms played: " + totalCount);
-	$("#like").html(like);
-	$("#dislike").html(totalCount - like);
+	$("#generationTxt").html("Gen: ");
+	$("#generation").html(generation);
+	$("#totalTxt").html("Rhythm");
+	$("#total").html(totalCount%8);
 }
 
 function makeSlider(){
@@ -258,6 +256,8 @@ function likeDislikeCommon(){
 }
 
 function newGeneration(){
+	$("#generationDiv").show();
+	$("#mask").show();
 	// console.log("NEW GENERATION");
 }
 
@@ -314,6 +314,11 @@ $("#gotItButton").click(function(){
 
 $("#goBackButton").click(function(){
     $("#instrumentDiv").hide();
+	$("#mask").hide();
+});
+
+$("#checkOutButton").click(function(){
+    $("#generationDiv").hide();
 	$("#mask").hide();
 });
 
@@ -434,11 +439,14 @@ $("#submitFormButton").click(function() {
 	//Create data object to be saved
 	var data = {
 		name: namePerson,
-		rhythm: binSeq,
+		rhythmSeq: binSeq,
 		date: timeStamp,
 		country: country,
 		likes: like,
 		dislikes: totalCount-like,
+		generation: generation,
+		rhythmNum: totalCount%generation,
+		total: totalCount,
 		comments: comments
 	};
 	console.log(data);
@@ -482,9 +490,8 @@ function sizeChange() {
 $(document).ready(function(){
 	$("#helpDiv").show();
 	$("#mask").show();
-	$("#tempo").show();
-	// $("#playButton").html("Play ");
-	// $("#pauseButton").html("Pause");
+	// $("#tempo").show();
+	$("#playButton").show();
 	makeHTML();
 	makeSlider();
 });

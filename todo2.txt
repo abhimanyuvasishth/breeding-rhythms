@@ -1,0 +1,15 @@
+FEEDBACK
+
+	3. Header bar
+		c. API - Add routes and developers page
+		d. Submit
+			i. Multiple submissions should not be allowed
+			ii. Clear comments form entries on submission
+			iii. Country auto-complete
+
+	5. Create
+		a. Click on circles
+		b. Add to database
+		c. Add to initial rhythms
+
+	6. Window resize and different sized screens

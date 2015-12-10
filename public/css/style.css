@@ -21,14 +21,10 @@ html,body{
 .header{
 	display: inline-block;
 	border-radius: 8px;
-	/*font-weight:lighter;*/
 	text-align: center;
 	text-decoration: none;
 	margin: 2px 50px;
 	font-family:'Lato', sans-serif;
-	/*font-family:'Caveat brush', cursive;*/
-	/*font-family:'Caveat';*/
-	/*font-family:'Dekko';*/
 	text-transform: uppercase;
 	font-size: 17px;
 	color: white;
@@ -76,14 +72,15 @@ html,body{
 
 #slider{
 	width: 40%;
-	float: center;
-	/*position: fixed;*/
+	/*float: center;*/
+	position: fixed;
+	left:30%;
 	/*z-index: 100;*/
-	display: inline-block;	
+	/*display: inline-block;	*/
 }
 
 #container{
-	margin-bottom: 0;
+	top:10%;
 	margin-top: 25px;
 }
 
@@ -113,10 +110,6 @@ html,body{
 	border: 2px solid white;
 }
 
-#pauseButton{
-	/*left:59%;*/
-}
-
 #likeRhythms{
 	left: 20%;
 }
@@ -126,6 +119,7 @@ html,body{
 }
 
 #playButton, #pauseButton{
+	display: none;
 	top:33%;
 	left: 44.5%;
 	text-align: center;
@@ -141,25 +135,33 @@ html,body{
 	color: #7fff00;
 }
 
-#string{
-	color: white;
+#tempo{
+	font-family: lato;
+	display: inline-block;
+	/*display: none;*/
+	z-index: 1000;
+	color: red;
 }
 
 #generation{
 	padding-top: 10px;
 	font-family: lato;
 	color: white;
+	font-size: 30px;
 	display: inline-block;
 }
 
-#tempo{
-	display: none;
+#generationTxt, #totalTxt{
+	font-family: lato;
+	display: inline-block;
 	color: white;
 }
+
 
 #total{
 	color: white;
 	font-family: lato;
+	font-size: 30px;
 	display: inline-block;	
 }
 
@@ -190,13 +192,13 @@ html,body{
 	height: 100%;
 }
 
-#helpTitle, #instrumentTitle, #submitTitle {
+#helpTitle, #instrumentTitle, #submitTitle, #generationTitle {
 	color: white;
 	font-size: 30px;
 	text-align: center;
 }
 
-#helpText, #helpText3 {
+#helpText, #helpText3, #generationInfo {
 	color: #9afe2e;
 	font-size: 20px;
 	/*text-align: left;*/
@@ -260,7 +262,7 @@ input{
 	border-radius:3px;
 }
 
-#submitDiv, #helpDiv, #instrumentDiv{
+#submitDiv, #helpDiv, #instrumentDiv, #generationDiv{
 	opacity:0.92;
 	position: absolute;
 	z-index: 120;
@@ -271,7 +273,7 @@ input{
 	display:none;
 }
 
-#submitForm, #helpBox, #instrumentBox{
+#submitForm, #helpBox, #instrumentBox, #generationBox{
 	width:350px;
 	background-color:black;
 	position: relative;

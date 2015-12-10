@@ -13,7 +13,7 @@
 		<div id="headerMenu">
 			<div class ="header" id = "helpButton">Help</div>
 			<div class ="header" id = "instrument">Instrument</div>
-			<div class ="header" id = "About">About</div>
+			<!-- <div class ="header" id = "About">About</div> -->
 			<div class ="header" id = "API">API</div>
 			<div class ="header" id = "submitButton">Submit</div>
 		</div>
@@ -33,11 +33,19 @@
 			</div>
 		</div>
 
-		<div id = "likeRhythms">
-			<div id = "likeButton"> Like
-				<!-- <img src="media/thumbs-up-down.jpg"> -->
+		<div id="generationDiv">
+			<div class="form" action="#" id="generationBox">
+				<div id = "generationTitle">New generation!</div>
+				<br>
+				<div id="generationInfo">We've created a new generation of rhythms for you. Check them out!</div>
+				<br>
+				<br>
+				<div class ="button" id = "checkOutButton">Check them out</div>
 			</div>
-			<!-- <div id = "like"></div> -->
+		</div>
+
+		<div id = "likeRhythms">
+			<div id = "likeButton"> Like</div>
 		</div>
 
 		<div id = "playButton">
@@ -49,18 +57,17 @@
 
 		<div id = "dislikeRhythms">
 			<div id = "dislikeButton">Dislike</div>
-			<!-- <div id = "dislike"></div> -->
 		</div>
 
 		<div id = "container"></div>
 
 		<div id="slider"></div>
-
 		<div id="tempo">tempo</div>
 
 		<div id="stringContainer">
-			<div id = "version"></div>
+			<div id = "generationTxt"></div>
 			<div id = "generation"></div>
+			<div id = "totalTxt"></div>
 			<div id = "total"></div>
 		</div>
 
