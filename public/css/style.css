@@ -191,17 +191,20 @@ html,body{
 
 #helpText, #helpText3 {
 	color: #9afe2e;
-	font-size: 18px;
+	font-size: 20px;
 	/*text-align: left;*/
 }
 
 #stringSubmit {
 	color: #9afe2e;
+	font-size: 20px;
 }
 
 #instrument0, #instrument1, #instrument2 {
 	color: #9afe2e;
-	font-size: 18px;
+	/*color: white;*/
+	font-size: 20px;
+	/*padding: 5px;*/
 	/*text-align: left;*/
 }
 
@@ -222,6 +225,8 @@ html,body{
 
 .button{
 	display: inline-block;
+	padding-top: 5px;
+	padding-bottom: 5px;
 	width: 49%;
 	text-align: center;
 	font-size: 18px;

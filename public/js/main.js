@@ -314,6 +314,11 @@ $("#gotItButton").click(function(){
 	$("#mask").hide();
 });
 
+$("#goBackButton").click(function(){
+    $("#instrumentDiv").hide();
+	$("#mask").hide();
+});
+
 $("#About").click(function(){
     var theLink = 'https://thespidermen.wordpress.com/';
     window.open(theLink);
@@ -416,7 +421,7 @@ function stringHTML() {
 		}
 		submitString += " ";
 	}
-	$("#stringSubmit").html("Rhythm sequence " + submitString);
+	$("#stringSubmit").html("Rhythm: " + submitString);
 }
 
 $("#submitFormButton").click(function() {
