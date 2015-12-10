@@ -8,8 +8,9 @@ var soundString;
 var generation = 0;
 var totalCount = 0;
 var like = 0;
+var option =2;
 
-var tempo = 300;
+var tempo = 450;
 var playing = 0;
 
 var initialRhythms = [];
@@ -18,9 +19,8 @@ var soundList = [];
 var playSeq;
 var seqCounter = 0;
 
-var colorList = ["#9afe2e", "#aefe57", "#008744", "#0057e7", "#d62d20", "#ffa700", "#03396c", "#005b96", "#6497b1", 
-				"#ff0097", "#a200ff", "#1ba1e2", "#f09609", "#8ae429", "#00aba9", "#a32020", "#e0301e", "#ffff00", 
-				"#7fff00", "#9600ff", "#47f26d", "#dc6900", "#eb8c00", "#66a3ff", "#ffff66", "#ff80d4", "#33ff33"];
+var colorList = ["#9afe2e", "#0057e7", "#d62d20", "#ffa700", "#6497b1", "#ff0097", "#a200ff", "#1ba1e2", "#f09609", "#8ae429", "#00aba9", "#a32020", "#ffff00", 
+				"#7fff00", "#9600ff", "#47f26d", "#dc6900", "#66a3ff", "#ffff66", "#33ff33"];
 
 // ------------------D3 append SVG and make circles-----------------------
 
@@ -54,10 +54,6 @@ function makeCircles(length, cX, cY){
 
 // ------------------Preloading all the sounds-----------------------
 function preload(){
-	chimes = loadSound('media/chimes.wav');
-	chimes.playMode('sustain');
-	chimes.name = 'chimes';
-	soundOptions.push(chimes);
 
 	high_hat_01 = loadSound('media/high_hat_01.wav');
 	high_hat_01.playMode('sustain');
@@ -68,11 +64,6 @@ function preload(){
 	high_hat_02.playMode('sustain');
 	high_hat_02.name = 'high_hat_02';
 	soundOptions.push(high_hat_02);
-
-	silent = loadSound('media/silent.wav');
-	silent.playMode('sustain');
-	silent.name = 'silent';
-	soundOptions.push(silent);
 
 	clave = loadSound('media/clave.mp3');
 	clave.playMode('sustain');
@@ -105,10 +96,10 @@ function makeHTML(){
 
 function makeSlider(){
 	$("#slider").slider({
-		value:350,
-		min: 200,
-		max: 500,
-		step: 50,
+		value:450,
+		min: 300,
+		max: 600,
+		step: 25,
 		slide: function( event, ui ) {
 			tempo = ui.value;
 			if (playing === 1){
@@ -231,7 +222,8 @@ function biasHigh(){
 function playSound(tempoVal){
 	playSeq = setInterval(function(){
 		if (soundString[seqCounter] == "1"){
-			curSound = soundOptions[4];
+			curSound = soundOptions[option];
+			// curSound = soundOptions[2];
 			curSound.play();
 		}
 		transformCircles("plus",seqCounter);
@@ -255,6 +247,8 @@ function likeDislikeCommon(){
 	totalCount += 1;
 	$("#pauseButton").hide();
 	$("#playButton").show();
+	$("#likeButton").hide();
+	$("#dislikeButton").hide();
 	var generationOld = generation;
 	generation = Math.floor(totalCount/8);
 	if (generationOld !== generation){
@@ -270,7 +264,7 @@ function newGeneration(){
 }
 
 function likeDislikeButtonClicked(){
-	if (Number(generation) === 0 || soundList.length < 4){
+	if (Number(generation) === 0 || soundList.length < 3){
 		if (totalCount%8 === 0){
 			initialRhythms = [];
 			generateRandomRhythms(8);
@@ -286,6 +280,39 @@ function likeDislikeButtonClicked(){
 }
 
 // -----------------Button clicked-------------------
+
+$("#instrument").click(function(){
+	$("#instrumentDiv").show();
+	$("#mask").show();
+});
+
+$("#instrument0").click(function(){
+	$("#instrumentDiv").hide();
+	$("#mask").hide();
+	option = 0;
+});
+
+$("#instrument1").click(function(){
+	$("#instrumentDiv").hide();
+	$("#mask").hide();
+	option = 1;
+});
+
+$("#instrument2").click(function(){
+	$("#instrumentDiv").hide();
+	$("#mask").hide();
+	option = 2;
+});
+
+$("#helpButton").click(function(){
+	$("#helpDiv").show();
+	$("#mask").show();
+});
+
+$("#gotItButton").click(function(){
+    $("#helpDiv").hide();
+	$("#mask").hide();
+});
 
 $("#About").click(function(){
     var theLink = 'https://thespidermen.wordpress.com/';
@@ -312,6 +339,8 @@ $("#playButton").click(function(){
 	$("#pauseButton").show();
 	playing = 1;
 	$("#playButton").hide();
+	$("#likeButton").show();
+	$("#dislikeButton").show();
 	// console.log("play");
 });
 
@@ -326,6 +355,7 @@ $("#pauseButton").click(function(){
 //------------------FORM SUBMIT---------------
 
 $('#submitButton').click(function(){
+	$('#mask').show();
 	popup();
 	stringHTML();
 });
@@ -386,11 +416,12 @@ function stringHTML() {
 		}
 		submitString += " ";
 	}
-	$("#stringSubmit").html("Rhythm sequence: " + submitString);
+	$("#stringSubmit").html("Rhythm sequence " + submitString);
 }
 
 $("#submitFormButton").click(function() {
 	$("#submitDiv").hide();
+	$('#mask').hide();
 	var binSeq = soundString || "none";
 	var namePerson =  $("#name").val() || 'YOU';
 	var timeStamp = new Date();
@@ -412,6 +443,7 @@ $("#submitFormButton").click(function() {
 });
 
 $("#cancelFormButton").click(function() {
+	$('#mask').hide();
 	$("#submitDiv").hide();
 });
 
@@ -434,7 +466,7 @@ function saveData(obj){
 
 //------------------WINDOW RESIZE---------------
 function windowResized() {
-	sizeChange();
+	// sizeChange();
 }
 
 function sizeChange() {
@@ -445,5 +477,6 @@ function sizeChange() {
 }
 
 $(document).ready(function(){
-
+	$("#helpDiv").show();
+	$("#mask").show();
 });

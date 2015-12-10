@@ -7,24 +7,42 @@
 		<link rel="stylesheet" href="css/jquery-ui.css">
 		<link rel="stylesheet" href="css/style.css">   
 		<link href='https://fonts.googleapis.com/css?family=Lato' rel='stylesheet' type='text/css'>
-		<link href='https://fonts.googleapis.com/css?family=Caveat+Brush' rel='stylesheet' type='text/css'>
-		<link href='https://fonts.googleapis.com/css?family=Caveat|Dekko' rel='stylesheet' type='text/css'>
 	</head>
 	<body>
 
 		<div id="headerMenu">
+			<div class ="header" id = "helpButton">Help</div>
+			<div class ="header" id = "instrument">Instrument</div>
 			<div class ="header" id = "About">About</div>
 			<div class ="header" id = "API">API</div>
 			<div class ="header" id = "submitButton">Submit</div>
 		</div>
 
+		<div id="instrumentDiv">
+			<div class="form" action="#" id="instrumentBox">
+				<div id = "instrumentTitle">Select an instrument</div>
+				<br>
+				<div id="instrument0">High Hat 1</div>
+				<br>
+				<div id="instrument1">High Hat 2</div>
+				<br>
+				<div id="instrument2">Clave</div>
+			</div>
+		</div>
+
 		<div id = "likeRhythms">
-			<div id = "likeButton">Like</div>
+			<div id = "likeButton"> Like
+				<!-- <img src="media/thumbs-up-down.jpg"> -->
+			</div>
 			<div id = "like"></div>
 		</div>
 
-		<div id = "playButton">Play</div>
-		<div id = "pauseButton">Pause</div>
+		<div id = "playButton">PLAY
+			<!-- <img src="media/playTransparent.gif"> -->
+		</div>
+		<div id = "pauseButton">PAUSE
+			<!-- <img src="media/pauseTransparent.gif"> -->
+		</div>
 
 		<div id = "dislikeRhythms">
 			<div id = "dislikeButton">Dislike</div>
@@ -39,13 +57,31 @@
 
 		<div id="stringContainer">
 			<div id = "version"></div>
-			<!-- <div id = "generation">GENERATION</div>
-			<!-- <div id = "total">TOTAL COUNT</div> -->
+			<div id = "generation">GENERATION</div>
+			<div id = "total">TOTAL COUNT</div>
+		</div>
+
+		<div id="mask"></div>
+
+		<!--Initial Instructions-->
+		<div id="helpDiv">
+			<div class="form" action="#" id="helpBox">
+				<div class ="helpText" id = "helpTitle">Breeding Rhythms</div>
+				<br>
+				<div class ="helpText" id = "helpText">New generations of rhythms are created based on the rhythms you like.</div>
+				<br>
+				<div class "helpText" id = "helpText3">Submit your favourite rhythms.</div>
+				<br>
+				<br>
+				<div class ="button" id = "gotItButton">Got it!</div>
+			</div>
 		</div>
 
 		<!--Submit Form -->
 		<div id="submitDiv">
 			<div class="form" action="#" id="submitForm">
+				<div class ="submitText" id = "submitTitle">Submit a rhythm</div>
+				<br>
 				<input type="text" id="name" placeholder="Name"/><br/>
 				<br/>
 				<input type="text" id="country" placeholder="Country"/><br/>

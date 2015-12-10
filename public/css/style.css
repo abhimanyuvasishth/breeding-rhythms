@@ -9,16 +9,18 @@ html,body{
 #headerMenu{
     position: fixed;
     display: block;
-    background-color: black;
+    background-color: #363b39;
     width: 100%;
     left: 0;
     top: 0;
     z-index: 90;
     border-top: 0;
+    padding: 5px 5px;
 }
 
 .header{
 	display: inline-block;
+	border-radius: 8px;
 	/*font-weight:lighter;*/
 	text-align: center;
 	text-decoration: none;
@@ -30,16 +32,46 @@ html,body{
 	text-transform: uppercase;
 	font-size: 17px;
 	color: white;
-	padding: 2px 12px;
+	padding: 8px 12px;
 }
 
 .header:hover {
 	color: #9afe2e;
 	cursor: pointer;
+	opacity: 0.75;
+	background-color: black;
+	-webkit-transition: all 0.3s ease-in-out;
+    -moz-transition: all 0.3s ease-in-out;
+    -o-transition: all 0.3s ease-in-out;
+    transition: all 0.3s ease-in-out;
 }
 
-#stringSubmit {
-	color: #9afe2e;
+/*----- Dropdown -----*/
+
+.dropbtn {
+    background-color: #4CAF50;
+    color: white;
+    padding: 16px;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+}
+
+/* Dropdown Content (Hidden by Default) */
+.sub-menu {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+}
+
+/* Links inside the dropdown */
+.sub-menu a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
 }
 
 #slider{
@@ -52,6 +84,7 @@ html,body{
 
 #container{
 	margin-bottom: 0;
+	margin-top: 25px;
 }
 
 #likeRhythms, #dislikeRhythms, #playButton, #pauseButton{
@@ -73,8 +106,14 @@ html,body{
 	color: #0057e7;
 }
 
+#likeButton, #dislikeButton{
+	display: none;
+	background-color: black;
+	border-color: white;
+}
+
 #pauseButton{
-	left:49%;
+	left:59%;
 }
 
 #likeRhythms{
@@ -86,7 +125,7 @@ html,body{
 }
 
 #playButton, #pauseButton{
-	left: 49.5%;
+	left: 49%;
 	text-align: center;
 }
 
@@ -132,6 +171,47 @@ html,body{
 }
 
 /*--------------------------------Form-------------------------------------*/
+#mask{
+	background-color: black;
+	display: none;
+	position: fixed;
+	top: 0;
+	left: 0;
+	opacity: 0.85;
+	z-index: 110;
+	width: 100%;
+	height: 100%;
+}
+
+#helpTitle, #instrumentTitle, #submitTitle {
+	color: white;
+	font-size: 30px;
+	text-align: center;
+}
+
+#helpText, #helpText3 {
+	color: #9afe2e;
+	font-size: 18px;
+	/*text-align: left;*/
+}
+
+#stringSubmit {
+	color: #9afe2e;
+}
+
+#instrument0, #instrument1, #instrument2 {
+	color: #9afe2e;
+	font-size: 18px;
+	/*text-align: left;*/
+}
+
+#instrument0:hover, #instrument1:hover, #instrument2:hover {
+	background-color: #9afe2e;
+	color: black;
+	cursor: pointer;
+	/*text-align: left;*/
+}
+
 .form{
 	border-radius:10px;
 	padding:20px 30px;
@@ -168,9 +248,10 @@ input{
 	border-radius:3px;
 }
 
-#submitDiv{
+#submitDiv, #helpDiv, #instrumentDiv{
 	opacity:0.92;
 	position: absolute;
+	z-index: 120;
 	top: 0px;
 	left: 0px;
 	height: 100%;
@@ -178,7 +259,7 @@ input{
 	display:none;
 }
 
-#submitForm{
+#submitForm, #helpBox, #instrumentBox{
 	width:350px;
 	background-color:black;
 	position: relative;

@@ -1,17 +1,27 @@
 FEEDBACK
 
-	1. Create
-		a. Musical instruments
-		b. Click on circles
+	1. On pageload
+		a. Fix things document.onready
+	
+	2. Buttons 
+		a. Like and dislike button images
+		b. Position of buttons
 
-	2. UI
-		a. Country auto complete
-		b. Fix colors
-		c. Fix top header
-		d. Window resize
-		e. Get rid of background colors if form is visible
+	3. Header bar
+		b. About - change for rhythm
+		c. API - Add routes and developers page
+		d. Submit
+			i. Multiple submissions should not be allowed
+			ii. Clear comments form entries on submission
+			iii. Country auto-complete
+	
+	4. Change colors of circles on each generation
+		a. Add new thing after each generation
+		b. Add rhythm version and generation on the bottom
 
-	3. Database for saving data
-		a. Use data as the initial rhythms
-		b. Fix routes
+	5. Create
+		a. Click on circles
+		b. Add to database
+		c. Add to initial rhythms
 
+	6. Window resize
