@@ -98,22 +98,23 @@ html,body{
 
 #dislikeButton:hover{
 	cursor: pointer;
-	color: #ff1a3c;
+	color: #9afe2e;
 }
 
 #likeButton:hover{
 	cursor: pointer;
-	color: #0057e7;
+	color: #9afe2e;
 }
 
 #likeButton, #dislikeButton{
 	display: none;
-	background-color: black;
-	border-color: white;
+	padding: 10px;
+	border-radius: 5px;
+	border: 2px solid white;
 }
 
 #pauseButton{
-	left:59%;
+	/*left:59%;*/
 }
 
 #likeRhythms{
@@ -125,7 +126,8 @@ html,body{
 }
 
 #playButton, #pauseButton{
-	left: 49%;
+	top:33%;
+	left: 44.5%;
 	text-align: center;
 }
 
@@ -144,16 +146,21 @@ html,body{
 }
 
 #generation{
+	padding-top: 10px;
+	font-family: lato;
 	color: white;
+	display: inline-block;
 }
 
 #tempo{
+	display: none;
 	color: white;
 }
 
 #total{
 	color: white;
-	display: block;	
+	font-family: lato;
+	display: inline-block;	
 }
 
 #like, #dislike{

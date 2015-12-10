@@ -75,8 +75,6 @@ function preload(){
 function setup(){
 	generateRandomRhythms(8);
 	setString();
-	makeHTML();
-	makeSlider();
 	makeCircles(16, $("#container").width()*0.5, $("#container").height()*0.5);
 	changeColorCircles();
 }
@@ -484,4 +482,9 @@ function sizeChange() {
 $(document).ready(function(){
 	$("#helpDiv").show();
 	$("#mask").show();
+	$("#tempo").show();
+	// $("#playButton").html("Play ");
+	// $("#pauseButton").html("Pause");
+	makeHTML();
+	makeSlider();
 });
