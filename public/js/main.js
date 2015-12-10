@@ -86,7 +86,7 @@ function draw(){
 function makeHTML(){
 	$("#generationTxt").html("Gen: ");
 	$("#generation").html(generation);
-	$("#totalTxt").html("Rhythm");
+	$("#totalTxt").html(" Rhythm: ");
 	$("#total").html(totalCount%8);
 }
 
