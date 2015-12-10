@@ -490,7 +490,7 @@ function sizeChange() {
 $(document).ready(function(){
 	$("#helpDiv").show();
 	$("#mask").show();
-	// $("#tempo").show();
+	$("#tempo").show();
 	$("#playButton").show();
 	makeHTML();
 	makeSlider();

@@ -72,11 +72,11 @@ html,body{
 
 #slider{
 	width: 40%;
-	/*float: center;*/
-	position: fixed;
-	left:30%;
+	float: centoer;
+	/*position: fixed;*/
+	/*left:30%;*/
 	/*z-index: 100;*/
-	/*display: inline-block;	*/
+	display: inline-block;	
 }
 
 #container{
@@ -137,10 +137,9 @@ html,body{
 
 #tempo{
 	font-family: lato;
-	display: inline-block;
-	/*display: none;*/
-	z-index: 1000;
-	color: red;
+	font-size: 10px;
+	color: white;
+	display: none;
 }
 
 #generation{
