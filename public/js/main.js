@@ -25,8 +25,8 @@ var colorList = ["#9afe2e", "#d62d20", "#ffa700", "#ff0097", "#a200ff", "#66a3ff
 
 var svg = d3.select("#container")
     .append("svg")
-    // .attr("width", "100%")
-    // .attr("height", "" + $("#container").width()*0.4)
+    // .attr("width", "" + $(window).width())
+    // .attr("height", "" + $(window).height())
     .attr("width", "960")
     .attr("height", "540")
     .style("fill", "black");
