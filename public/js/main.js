@@ -341,7 +341,7 @@ $("#API").click(function(){
 	$("#mask").show();
 });
 
-$("#apiLink").click(function(){
+$("#allLink").click(function(){
 	var theLink = 'https://breedingrhythms.herokuapp.com/api/';
     window.open(theLink);
     $("#apiDiv").hide();
