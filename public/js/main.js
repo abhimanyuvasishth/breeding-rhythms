@@ -87,9 +87,9 @@ function draw(){
 // ------------------Change color and style of things-----------------------
 	
 function makeHTML(){
-	$("#generationTxt").html("Gen: ");
+	$("#generationTxt").html("Generation");
 	$("#generation").html(generation);
-	$("#totalTxt").html(" Rhythm: ");
+	$("#totalTxt").html(" Rhythm");
 	$("#total").html(totalCount%8);
 }
 
@@ -342,21 +342,21 @@ $("#API").click(function(){
 });
 
 $("#apiLink").click(function(){
-	var theLink = 'https://thespidermen.wordpress.com/api';
+	var theLink = 'https://breedingrhythms.herokuapp.com/api/';
     window.open(theLink);
     $("#apiDiv").hide();
 	$("#mask").hide();
 });
 
 $("#countryLink").click(function(){
-	var theLink = 'https://breedingrhythms.herokuapp.com/api/country=India';
+	var theLink = 'https://breedingrhythms.herokuapp.com/api/country/India';
     window.open(theLink);
     $("#apiDiv").hide();
 	$("#mask").hide();
 });
 
 $("#nameLink").click(function(){
-	var theLink = 'https://breedingrhythms.herokuapp.com/api/name=Abhimanyu';
+	var theLink = 'https://breedingrhythms.herokuapp.com/api/name/Abhimanyu';
     window.open(theLink);
     $("#apiDiv").hide();
 	$("#mask").hide();
