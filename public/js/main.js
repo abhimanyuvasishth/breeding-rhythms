@@ -144,7 +144,7 @@ function colorCircles(i, color){
     d3.selectAll("[id='" + i + "']")
         .style("fill", color);
 }
-// Genetic
+
 // ----------------- initial rhythms and strings-------------------
 
 function generateRandomRhythms(number){
@@ -168,18 +168,26 @@ function geneticAlgorithm(){
 	var tempSound = "";
 
 	for (var i = 0; i < 4; i++){
-		var number = Math.floor(soundList.length*(biasHigh()));
-		// console.log(number);
-		// console.log(soundList.length);
-		// console.log(biasHigh());
+		var number = Math.floor(soundList.length*(biasHigh(2)));
+		console.log(number);
 		tempSound += soundList[number].substring(Number(4*i),Number(4*i+4));	
 	}
+	console.log("----");
 
 	var mutate = Math.random(0,1);
 	if (mutate > 0.9){
 		var place = Math.floor((soundString.length-4)*Math.random(0,1));
 		var tempSoundSub = tempSound.substring(place, place+4);
 		tempSound = tempSound.replace(tempSoundSub, flip(tempSoundSub));
+		// console.log("MUTATION AT " + place);
+	}
+	else if (mutate > 0.47 & mutate < 0.49){
+		tempSound = "";
+		// console.log("RANDOM");
+		for (var l = 0; l < 16; l ++){
+			tempSound += "" +Math.round(Math.random(0,1));
+		}
+		// console.log(tempSound);
 	}
 
 	soundString = tempSound;
@@ -195,25 +203,15 @@ function flip(substring){
 
 // --------------Functions using random that mimic a probability distribution--------------
 
-function biasLow(){
-	var a = Math.random(0,1);
-	var b = Math.random(0,1);
-	var c = Math.random(0,1);
-	return Math.min(a,b,c);
-}
-
-function biasMiddle(){
-	var a = Math.random(0,1);
-	var b = Math.random(0,1);
-	var c = Math.random(0,1);
-	return (a+b+c)/3;
-}
-
-function biasHigh(){
-	var a = Math.random(0,1);
-	var b = Math.random(0,1);
-	var c = Math.random(0,1);
-	return Math.max(a,b,c);
+function biasHigh(inp){
+	var max = 0;
+	for (var i = 0; i < inp; i ++){
+		var a = Math.random(0,1);
+		if (a > max){
+			max = a;
+		}
+	}
+	return max;
 }
 
 // -----------------Play and stop-------------------
@@ -251,6 +249,7 @@ function likeDislikeCommon(){
 	var generationOld = generation;
 	generation = Math.floor(totalCount/8);
 	if (generationOld !== generation){
+		// console.log("NEW GEN!");
 		newGeneration();
 	}
 	likeDislikeButtonClicked();
@@ -262,19 +261,22 @@ function newGeneration(){
 	$("#generationDiv").show();
 	$("#generationInfo2").html("Check out generation " + generation + "!");
 	$("#mask").show();
-	// console.log("NEW GENERATION");
 }
 
 function likeDislikeButtonClicked(){
-	if (Number(generation) === 0 || soundList.length < 3){
+	// console.log(soundList);
+	if (Number(generation) === 0 || soundList.length < 4){
+		// console.log("Not enough in sound list");
 		if (totalCount%8 === 0){
+			// console.log("Generating random");
 			initialRhythms = [];
 			generateRandomRhythms(8);
 		}
 		setString();
 	}
 	else {
-		geneticAlgorithm();	
+		// console.log("Genetic!");
+		geneticAlgorithm();
 	}
 	makeHTML();
 	// console.log(tempo);
@@ -479,7 +481,7 @@ $("#submitFormButton").click(function() {
 		likes: like,
 		dislikes: totalCount-like,
 		generation: generation,
-		rhythmNum: totalCount%generation,
+		rhythmNum: Number(totalCount%generation),
 		total: totalCount,
 		comments: comments
 	};
