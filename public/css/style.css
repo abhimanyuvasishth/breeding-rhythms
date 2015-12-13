@@ -62,7 +62,7 @@ html,body{
 #likeRhythms, #dislikeRhythms, #playButton, #pauseButton{
 	display: inline-block;
 	font-family: Lato;
-	position:fixed;
+	position:absolute;
 	top: 280px;
 	color: white;
 	z-index: 101;
@@ -96,9 +96,10 @@ html,body{
 #playButton, #pauseButton{
 	display: none;
 	/*top:33%;*/
-	position: absolute;
+	/*position: fixed;*/
 	top: 218px;
 	left: 43.5%;
+	width: 3%;
 	/*float: center;*/
 	text-align: center;
 }
