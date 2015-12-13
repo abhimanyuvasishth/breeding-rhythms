@@ -11,11 +11,29 @@
 	<body>
 
 		<div id="headerMenu">
-			<div class ="header" id = "helpButton">Help</div>
+			<div class ="header" id = "helpButton">Rules</div>
 			<div class ="header" id = "instrument">Instrument</div>
 			<!-- <div class ="header" id = "About">About</div> -->
 			<div class ="header" id = "API">API</div>
 			<div class ="header" id = "submitButton">Submit</div>
+		</div>
+
+		<div id="apiDiv">
+			<div class="form" action="#" id="apiBox">
+				<div id = "apiTitle">API routes</div>
+				<br>
+				<div id="allData">All data</div>
+				<div id="allLink">Add "/api" to the URL</div>
+				<br>
+				<div id="countryData">Query by country</div>
+				<div id="countryLink">Add "/api/country=[searchCountry]" to the URL</div>
+				<br>
+				<div id="nameData">Query by name</div>
+				<div id="nameLink">Add "/api/name=[searchName]" to the URL</div>
+				<br>
+				<br>
+				<div class ="button" id = "goBack2Button">Go back</div>
+			</div>
 		</div>
 
 		<div id="instrumentDiv">
@@ -37,7 +55,9 @@
 			<div class="form" action="#" id="generationBox">
 				<div id = "generationTitle">New generation!</div>
 				<br>
-				<div id="generationInfo">We've created a new generation of rhythms for you. Check them out!</div>
+				<div id="generationInfo">We've created a new generation of rhythms for you.</div>
+				<br>
+				<div id="generationInfo2"></div>
 				<br>
 				<br>
 				<div class ="button" id = "checkOutButton">Check them out</div>
@@ -62,11 +82,12 @@
 		<div id = "container"></div>
 
 		<div id="slider"></div>
-		<div id="tempo">tempo</div>
+		<div id="tempo">Change tempo</div>
 
 		<div id="stringContainer">
 			<div id = "generationTxt"></div>
 			<div id = "generation"></div>
+			<!-- <div id = "space">     </div> -->
 			<div id = "totalTxt"></div>
 			<div id = "total"></div>
 		</div>
@@ -80,9 +101,11 @@
 				<br>
 				<div class ="helpText" id = "helpText">New generations of 8 rhythms each are created based on the rhythms you like.</div>
 				<br>
+				<div class "helpText" id = "helpText2">Like or dislike a rhythm to see the next one.</div>
+				<br>
 				<div class "helpText" id = "helpText3">Submit your favourite rhythms.</div>
 				<br>
-				<br>
+				<br/>
 				<div class ="button" id = "gotItButton">Got it!</div>
 			</div>
 		</div>
@@ -92,9 +115,9 @@
 			<div class="form" action="#" id="submitForm">
 				<div class ="submitText" id = "submitTitle">Submit a rhythm</div>
 				<br>
-				<input type="text" id="name" placeholder="Name"/><br/>
+				<input type="text" id="name" placeholder="Your Name"/><br/>
 				<br/>
-				<input type="text" id="country" placeholder="Country"/><br/>
+				<input type="text" id="country" placeholder="Your Country"/><br/>
 				<br/>
 				<div id = "stringSubmit"></div>
 				<br>
@@ -103,6 +126,22 @@
 				<br>
 				<div class ="button" id = "submitFormButton">Submit</div>
 				<div class ="button" id = "cancelFormButton">Cancel</div>
+				<br/>
+			</div>
+		</div>
+
+		<div id="thanksDiv">
+			<div class="form" action="#" id="thanksBox">
+				<div class ="thanksText" id = "thanksTitle">Thank you!</div>
+				<br>
+				<div class ="thanksText" id = "thanksText1"></div>
+				<br>
+				<div class "thanksText" id = "thanksText2"></div>
+				<div class "thanksText" id = "thanksText3"></div>
+				<br>
+				<br/>
+				<div class ="button" id = "thanksKeepGoingButton">Keep going</div>
+				<div class ="button" id = "thanksRestartButton">Start again</div>
 				<br/>
 			</div>
 		</div>

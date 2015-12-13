@@ -141,8 +141,8 @@ function colorCircles(i, color){
     d3.selectAll("[id='" + i + "']")
         .style("fill", color);
 }
-
-// -----------------Genetic initial rhythms and strings-------------------
+// Genetic
+// ----------------- initial rhythms and strings-------------------
 
 function generateRandomRhythms(number){
 	for (var i = 0; i < number; i++){
@@ -257,6 +257,7 @@ function likeDislikeCommon(){
 
 function newGeneration(){
 	$("#generationDiv").show();
+	$("#generationInfo2").html("Check out generation " + generation + "!");
 	$("#mask").show();
 	// console.log("NEW GENERATION");
 }
@@ -317,6 +318,11 @@ $("#goBackButton").click(function(){
 	$("#mask").hide();
 });
 
+$("#goBack2Button").click(function(){
+    $("#apiDiv").hide();
+	$("#mask").hide();
+});
+
 $("#checkOutButton").click(function(){
     $("#generationDiv").hide();
 	$("#mask").hide();
@@ -328,8 +334,8 @@ $("#About").click(function(){
 });
 
 $("#API").click(function(){
-    var theLink = 'https://breedingrhythms.herokuapp.com/api';
-    window.open(theLink);
+    $("#apiDiv").show();
+	$("#mask").show();
 });
 
 $("#likeButton").click(function(){
@@ -429,7 +435,11 @@ function stringHTML() {
 
 $("#submitFormButton").click(function() {
 	$("#submitDiv").hide();
-	$('#mask').hide();
+	var username = $("#name").val() || 'Rhythm enthusiast';
+	$("#thanksText1").html(username + ", here are your numbers:");
+	$("#thanksText2").html("You liked " + like + " rhythms.");
+	$("#thanksText3").html("You disliked " + Number(totalCount-like) + " rhythms");
+	$("#thanksDiv").show();
 	var binSeq = soundString || "none";
 	var namePerson =  $("#name").val() || 'YOU';
 	var timeStamp = new Date();
@@ -456,6 +466,16 @@ $("#submitFormButton").click(function() {
 $("#cancelFormButton").click(function() {
 	$('#mask').hide();
 	$("#submitDiv").hide();
+});
+
+$("#thanksKeepGoingButton").click(function() {
+	$('#mask').hide();
+	$("#thanksDiv").hide();
+});
+
+$("#thanksRestartButton").click(function() {
+	$('#mask').hide();
+	$("#thanksDiv").hide();
 });
 
 function saveData(obj){

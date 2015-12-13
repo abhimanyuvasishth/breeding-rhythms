@@ -152,12 +152,3 @@ app.get("*", function(req, res){
 	res.render("index2");
 	//dothis(req, res);
 });
-
-
-// app.get("/api/:*", function(req, res){
-// 	dothis(req, res);
-// });
-
-function dothis(req, res){
-	res.render("index2");
-}
