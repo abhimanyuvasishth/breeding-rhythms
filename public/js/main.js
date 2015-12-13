@@ -105,7 +105,7 @@ function makeSlider(){
 				stopSeq();
 				playSound(tempo);
 			}
-			console.log(tempo);
+			// console.log(tempo);
 		}
 	});
 }
@@ -159,7 +159,7 @@ function generateRandomRhythms(number){
 
 function setString(){
 	soundString = initialRhythms[totalCount%8];
-	console.log(initialRhythms);
+	// console.log(initialRhythms);
 }
 
 // -----------------Genetic algorithm for new generations-------------------
@@ -169,9 +169,9 @@ function geneticAlgorithm(){
 
 	for (var i = 0; i < 4; i++){
 		var number = Math.floor(soundList.length*(biasHigh()));
-		console.log(number);
-		console.log(soundList.length);
-		console.log(biasHigh());
+		// console.log(number);
+		// console.log(soundList.length);
+		// console.log(biasHigh());
 		tempSound += soundList[number].substring(Number(4*i),Number(4*i+4));	
 	}
 
@@ -483,7 +483,7 @@ $("#submitFormButton").click(function() {
 		total: totalCount,
 		comments: comments
 	};
-	console.log(data);
+	// console.log(data);
 	saveData(data);
 });
 
@@ -509,12 +509,12 @@ function saveData(obj){
 		contentType: 'application/json',
 		data: JSON.stringify(obj),
 		error: function(resp){
-			console.log("Oh no...");
-			console.log(resp);
+			// console.log("Oh no...");
+			// console.log(resp);
 		},
 		success: function(resp){
-			console.log('WooHoo!');
-			console.log(resp);
+			// console.log('WooHoo!');
+			// console.log(resp);
 		}
 	});
 }
