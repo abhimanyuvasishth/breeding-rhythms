@@ -25,13 +25,16 @@ var colorList = ["#9afe2e", "#d62d20", "#ffa700", "#ff0097", "#a200ff", "#66a3ff
 
 var svg = d3.select("#container")
     .append("svg")
-    .attr("width", "100%")
-    .attr("height", "" + $("#container").width()*0.4)
+    // .attr("width", "100%")
+    // .attr("height", "" + $("#container").width()*0.4)
+    .attr("width", "960")
+    .attr("height", "540")
     .style("fill", "black");
 
 function makeCircles(length, cX, cY){
-
-	var radius = 200;
+	cY = 280;
+	cX = 480;
+	var radius = $("#container").height()*0.38;
 	// var cX = $("#container").width()*0.5;
 	// var cY = $("#container").height()*0.5;
 	var angle = 360/length;
@@ -74,7 +77,7 @@ function preload(){
 function setup(){
 	generateRandomRhythms(8);
 	setString();
-	makeCircles(16, $("#container").width()*0.5, $("#container").height()*0.5);
+	makeCircles(16, $("#container").width()*0.5,$("#container").height()*0.5);
 	changeColorCircles();
 }
 
@@ -336,6 +339,27 @@ $("#About").click(function(){
 $("#API").click(function(){
     $("#apiDiv").show();
 	$("#mask").show();
+});
+
+$("#apiLink").click(function(){
+	var theLink = 'https://thespidermen.wordpress.com/api';
+    window.open(theLink);
+    $("#apiDiv").hide();
+	$("#mask").hide();
+});
+
+$("#countryLink").click(function(){
+	var theLink = 'https://breedingrhythms.herokuapp.com/api/country=India';
+    window.open(theLink);
+    $("#apiDiv").hide();
+	$("#mask").hide();
+});
+
+$("#nameLink").click(function(){
+	var theLink = 'https://breedingrhythms.herokuapp.com/api/name=Abhimanyu';
+    window.open(theLink);
+    $("#apiDiv").hide();
+	$("#mask").hide();
 });
 
 $("#likeButton").click(function(){
