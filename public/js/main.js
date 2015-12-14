@@ -62,9 +62,7 @@ function preload(){
 	high_hat_01.name = 'high_hat_01';
 	soundOptions.push(high_hat_01);
 
-	// high_hat_02 = loadSound('media/high_hat_02.wav');
-	// high_hat_02 = loadSound('media/bass.mp3');
-	high_hat_02 = loadSound('media/snare.mp3');
+	high_hat_02 = loadSound('media/high_hat_02.wav');
 	high_hat_02.playMode('sustain');
 	high_hat_02.name = 'high_hat_02';
 	soundOptions.push(high_hat_02);
