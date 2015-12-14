@@ -62,7 +62,9 @@ function preload(){
 	high_hat_01.name = 'high_hat_01';
 	soundOptions.push(high_hat_01);
 
-	high_hat_02 = loadSound('media/high_hat_02.wav');
+	// high_hat_02 = loadSound('media/high_hat_02.wav');
+	// high_hat_02 = loadSound('media/bass.mp3');
+	high_hat_02 = loadSound('media/snare.mp3');
 	high_hat_02.playMode('sustain');
 	high_hat_02.name = 'high_hat_02';
 	soundOptions.push(high_hat_02);
@@ -75,6 +77,7 @@ function preload(){
 }
 
 function setup(){
+
 	generateRandomRhythms(8);
 	setString();
 	makeCircles(16, $("#container").width()*0.5,$("#container").height()*0.5);
@@ -286,6 +289,9 @@ function likeDislikeButtonClicked(){
 // -----------------Button clicked-------------------
 
 $("#instrument").click(function(){
+	$("#apiDiv").hide();
+	$("#helpDiv").hide();
+	$("#submitDiv").hide();
 	$("#instrumentDiv").show();
 	$("#mask").show();
 });
@@ -309,6 +315,9 @@ $("#instrument2").click(function(){
 });
 
 $("#helpButton").click(function(){
+	$("#apiDiv").hide();
+	$("#instrumentDiv").hide();
+	$("#submitDiv").hide();
 	$("#helpDiv").show();
 	$("#mask").show();
 });
@@ -334,11 +343,14 @@ $("#checkOutButton").click(function(){
 });
 
 $("#About").click(function(){
-    var theLink = 'https://thespidermen.wordpress.com/';
+    var theLink = 'https://thespidermen.wordpress.com/2015/12/14/breeding-rhythms/';
     window.open(theLink);
 });
 
 $("#API").click(function(){
+	$("#submitDiv").hide();
+	$("#helpDiv").hide();
+	$("#instrumentDiv").hide();
     $("#apiDiv").show();
 	$("#mask").show();
 });
@@ -396,6 +408,9 @@ $("#pauseButton").click(function(){
 
 $('#submitButton').click(function(){
 	$('#mask').show();
+	$("#apiDiv").hide();
+	$("#helpDiv").hide();
+	$("#instrumentDiv").hide();
 	popup();
 	stringHTML();
 });
@@ -403,45 +418,6 @@ $('#submitButton').click(function(){
 function popup() {
 	$("#submitDiv").show();
 }
-
-// var countries = ['Aruba', 'Andorra', 'Afghanistan', 'Angola', 'Albania','United Arab Emirates', 'Argentina', 'Armenia', 'American Samoa', 'Antigua and Barbuda', 'Australia', 'Austria', 'Azerbaijan', 'Burundi', 'Belgium', 'Benin', 'Burkina Faso', 'Bangladesh', 'Bulgaria', 'Bahrain', 'Bahamas', 'Bosnia and Herzegovina', 'Belarus', 'Belize', 'Bermuda', 'Bolivia', 'Brazil', 'Barbados', 'Brunei Darussalam', 'Bhutan', 'Botswana', 'Central African Republic', 'Canada', 'Switzerland','Chile', 'China', "Côte d'Ivoire", 'Cameroon', 'Congo', 'Colombia', 'Comoros', 'Cabo Verde', 'Costa Rica', 'Cuba', 'Curacao', 'Cayman Islands', 'Cyprus', 'Czech Republic', 'Germany', 'Djibouti', 'Dominica', 'Denmark', 'Dominican Republic', 'Algeria', 'Ecuador', 'Egypt', 'Eritrea', 'Spain', 'Estonia', 'Ethiopia', 'Finland', 'Fiji', 'France', 'Gabon', 'United Kingdom', 'Georgia', 'Ghana', 'Guinea', 'Gambia', 'Guinea-Bissau', 'Equatorial Guinea', 'Greece', 'Grenada', 'Greenland', 'Guatemala', 'Guam', 'Guyana','Honduras', 'Croatia', 'Haiti', 'Hungary', 'Indonesia', 'Isle of Man', 'India', 'Ireland', 'Iran, Islamic Republic of', 'Iraq', 'Iceland', 'Israel', 'Italy', 'Jamaica', 'Jordan', 'Japan', 'Kazakhstan', 'Kenya', 'Kyrgyzstan', 'Cambodia', 'Kiribati', 'St. Kitts and Nevis', "Korea, Democratic People's Republic of", 'Kosovo', 'Kuwait', "Lao People's Democratic Republic", 'Lebanon', 'Liberia', 'Libya', 'Saint Lucia', 'Liechtenstein', 'Sri Lanka', 'Lesotho', 'Lithuania', 'Luxembourg', 'Latvia', 'Macao', 'Saint Martin (French part)', 'Morocco', 'Monaco', 'Moldova', 'Madagascar', 'Maldives', 'Mexico', 'Marshall Islands', 'Macedonia, the Former Yugoslav Republic of', 'Mali', 'Malta', 'Myanmar', 'Montenegro', 'Mongolia', 'Northern Mariana Islands', 'Mozambique', 'Mauritania', 'Mauritius', 'Malawi', 'Malaysia', 'Namibia', 'New Caledonia', 'Niger', 'Nigeria', 'Nicaragua', 'Netherlands', 'Norway', 'Nepal', 'New Zealand', 'Oman', 'Pakistan', 'Panama', 'Peru', 'Philippines', 'Palau', 'Papua New Guinea', 'Poland', 'Puerto Rico', 'Portugal', 'Paraguay', 'French Polynesia', 'Qatar', 'Romania', 'Russian Federation', 'Rwanda', 'Saudi Arabia', 'Sudan', 'Senegal', 'Singapore', 'Solomon Islands', 'Sierra Leone', 'El Salvador', 'San Marino', 'Somalia', 'Serbia', 'South Sudan','Sao Tome and Principe', 'Suriname', 'Slovak Republic', 'Slovenia', 'Sweden', 'Swaziland', 'Sint Maarten (Dutch part)', 'Seychelles', 'Syrian Arab Republic', 'Turks and Caicos Islands', 'Chad', 'Togo', 'Thailand', 'Tajikistan', 'Turkmenistan', 'Timor-Leste', 'Tonga', 'Trinidad and Tobago', 'Tunisia', 'Turkey', 'Tuvalu', 'Tanzania', 'Uganda', 'Ukraine', 'Uruguay', 'United States', 'Uzbekistan', 'Saint Vincent and the Grenadines', 'Venezuela, Bolivarian Republic of', 'Virgin Islands (U.S.)', 'Vietnam', 'Vanuatu','Samoa', 'Yemen', 'South Africa', 'Congo, the Democratic Republic of the', 'Zambia', 'Zimbabwe'];
-
-// //Taken from http://twitter.github.io/typeahead.js/examples/
-// var substringMatcher = function(strs) {
-//       return function findMatches(q, cb) {
-//           var matches, substrRegex;
-
-//           // an array that will be populated with substring matches
-//           matches = [];
-
-//           // regex used to determine if a string contains the substring `q`
-//           substrRegex = new RegExp(q, 'i');
-
-//           // iterate through the pool of strings and for any string that
-//           // contains the substring `q`, add it to the `matches` array
-//           $.each(strs, function(i, str) {
-//               if (substrRegex.test(str)) {
-//                   // the typeahead jQuery plugin expects suggestions to a
-//                   // JavaScript object, refer to typeahead docs for more info
-//                   matches.push({ value: str });
-//               }
-//           });
-
-//           cb(matches);
-//       };
-// };
-
-// $('#country').typeahead({
-//           hint: false,
-//           highlight: true,
-//           minLength: 3
-//       },
-//       {
-//           name: 'countries',
-//           displayKey: 'value',
-//           source: substringMatcher(countries)
-//       });
-
 
 //------------------DATABASES---------------
 
