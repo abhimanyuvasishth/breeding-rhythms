@@ -70,7 +70,7 @@ html,body{
 
 #dislikeButton:hover{
 	cursor: pointer;
-	color: #9afe2e;
+	color: #d62d20;
 }
 
 #likeButton:hover{
@@ -86,11 +86,11 @@ html,body{
 }
 
 #likeRhythms{
-	left: 20%;
+	right: 20%;
 }
 
 #dislikeRhythms{
-	right: 20%;
+	left: 20%;
 }
 
 #playButton, #pauseButton{
