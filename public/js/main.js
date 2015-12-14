@@ -5,19 +5,25 @@ var chimes, high_hat_01, high_hat_02, silent;
 var soundOptions = [];
 
 var soundString;
-var generation = 0;
-var totalCount = 0;
-var like = 0;
-var option =2;
+var generation, totalCount, like, option, tempo, playing, initialRhythms, soundList, seqCounter;
 
-var tempo = 450;
-var playing = 0;
+function declareVariables(){
+	generation = 0;
+	totalCount = 0;
+	like = 0;
+	option =2;
 
-var initialRhythms = [];
-var soundList = [];
+	tempo = 450;
+	playing = 0;
+
+	initialRhythms = [];
+	soundList = [];
+
+	seqCounter = 0;
+}
 
 var playSeq;
-var seqCounter = 0;
+
 
 var colorList = ["#9afe2e", "#d62d20", "#ffa700", "#ff0097", "#a200ff", "#66a3ff", "ffffff", "4254f2"];
 
@@ -75,7 +81,6 @@ function preload(){
 }
 
 function setup(){
-
 	generateRandomRhythms(8);
 	setString();
 	makeCircles(16, $("#container").width()*0.5,$("#container").height()*0.5);
@@ -170,10 +175,10 @@ function geneticAlgorithm(){
 
 	for (var i = 0; i < 4; i++){
 		var number = Math.floor(soundList.length*(biasHigh(2)));
-		console.log(number);
+		// console.log(number);
 		tempSound += soundList[number].substring(Number(4*i),Number(4*i+4));	
 	}
-	console.log("----");
+	// console.log("----");
 
 	var mutate = Math.random(0,1);
 	if (mutate > 0.9){
@@ -288,6 +293,7 @@ function likeDislikeButtonClicked(){
 
 $("#instrument").click(function(){
 	$("#apiDiv").hide();
+	$("#generationDiv").hide();
 	$("#helpDiv").hide();
 	$("#submitDiv").hide();
 	$("#instrumentDiv").show();
@@ -314,6 +320,7 @@ $("#instrument2").click(function(){
 
 $("#helpButton").click(function(){
 	$("#apiDiv").hide();
+	$("#generationDiv").hide();
 	$("#instrumentDiv").hide();
 	$("#submitDiv").hide();
 	$("#helpDiv").show();
@@ -349,6 +356,7 @@ $("#API").click(function(){
 	$("#submitDiv").hide();
 	$("#helpDiv").hide();
 	$("#instrumentDiv").hide();
+	$("#generationDiv").hide();
     $("#apiDiv").show();
 	$("#mask").show();
 });
@@ -407,6 +415,7 @@ $("#pauseButton").click(function(){
 $('#submitButton').click(function(){
 	$('#mask').show();
 	$("#apiDiv").hide();
+	$("#generationDiv").hide();
 	$("#helpDiv").hide();
 	$("#instrumentDiv").hide();
 	popup();
@@ -476,6 +485,19 @@ $("#thanksKeepGoingButton").click(function() {
 $("#thanksRestartButton").click(function() {
 	$('#mask').hide();
 	$("#thanksDiv").hide();
+	declareVariables();
+	generateRandomRhythms(8);
+	setString();
+	makeHTML();
+	changeColorCircles();
+	console.log("soundList: " + soundList);
+	console.log("soundString: " + soundString);
+	console.log("totalCount: " + totalCount);
+	console.log("likes: " + like);
+	console.log("generation: " + generation);
+	console.log("tempo: " + tempo);
+	console.log("playing: " + playing);
+	console.log("initialRhythms: " + initialRhythms);
 });
 
 function saveData(obj){
@@ -512,6 +534,7 @@ $(document).ready(function(){
 	$("#mask").show();
 	$("#tempo").show();
 	$("#playButton").show();
+	declareVariables();
 	makeHTML();
 	makeSlider();
 });
