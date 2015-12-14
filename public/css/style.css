@@ -243,7 +243,7 @@ html,body{
 	/*text-align: left;*/
 }
 
-#allLink:hover, #countryLink:hover, #nameLink:hover {
+#allLink:hover, #countryLink:hover, #nameLink:hover, #rhythmLink:hover {
 	background-color: #9afe2e;
 	color: black;
 	cursor: pointer;
