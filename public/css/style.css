@@ -227,7 +227,7 @@ html,body{
 	/*text-align: left;*/
 }
 
-#allLink, #countryLink, #nameLink {
+#allLink, #countryLink, #nameLink, #rhythmLink {
 	color: #9afe2e;
 	/*color: white;*/
 	font-size: 18px;
@@ -235,7 +235,7 @@ html,body{
 	/*text-align: left;*/
 }
 
-#allData, #countryData, #nameData {
+#allData, #countryData, #nameData, #rhythmData {
 	color: white;
 	/*color: white;*/
 	font-size: 20px;

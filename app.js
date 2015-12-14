@@ -91,39 +91,6 @@ app.get("/api", function(req,res){
 	});
 });
 
-//JSON Serving route - Single Word
-// //app.get("/api/country/:country", function(req, res){
-// app.get("/api/country", function(req, res){
-// 	console.log(req.query);
-// 	var currentCountry;
-// 	if (!req.query.countryName){
-// 		res.json({msg: "Please add '?countryName=[COUNTRY-NAME]' to the url"});
-// 	}
-// 	else{
-// 		currentCountry = req.query.countryName;
-// 	//}
-// 	//	var currentCountry = req.params.country;
-// 		console.log('Making a db request for: ' + currentCountry);
-// 		//Use the Request lib to GET the data in the CouchDB on Cloudant
-// 		Request.get({
-// 			url: cloudant_URL+"/_all_docs?include_docs=true",
-// 			auth: {
-// 				user: cloudant_KEY,
-// 				pass: cloudant_PASSWORD
-// 			},
-// 			json: true
-// 		},
-// 		function (error, response, body){
-// 			var theRows = body.rows;
-// 			//Filter the results to match the current word
-// 			var filteredRows = theRows.filter(function (d) {
-// 				return d.doc.country == currentCountry;
-// 			});
-// 			res.json(filteredRows);
-// 		});
-// 	}
-// });
-
 app.get("/api/country/:country", function(req, res){
 	var currentCountry = req.params.country;
 	console.log('Making a db request for: ' + currentCountry);
@@ -168,9 +135,30 @@ app.get("/api/name/:names", function(req, res){
 	});
 });
 
+app.get("/api/rhythmSeq/:rhythmSeq", function(req, res){
+	var currentRhythm = req.params.rhythmSeq;
+	console.log('Making a db request for: ' + currentRhythm);
+	//Use the Request lib to GET the data in the CouchDB on Cloudant
+	Request.get({
+		url: cloudant_URL+"/_all_docs?include_docs=true",
+		auth: {
+			user: cloudant_KEY,
+			pass: cloudant_PASSWORD
+		},
+		json: true
+	},
+	function (error, response, body){
+		var theRows = body.rows;
+		//Filter the results to match the current word
+		var filteredRows = theRows.filter(function (d) {
+			return d.doc.rhythmSeq == currentRhythm;
+		});
+		res.json(filteredRows);
+	});
+});
+
 //Catch All Route
 app.get("*", function(req, res){
 	console.log(req.url);
 	res.render("index2");
-	//dothis(req, res);
 });

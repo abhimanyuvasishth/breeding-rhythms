@@ -382,6 +382,13 @@ $("#nameLink").click(function(){
 	$("#mask").hide();
 });
 
+$("#rhythmLink").click(function(){
+	var theLink = 'https://breedingrhythms.herokuapp.com/api/rhythmSeq/0100100000000000';
+    window.open(theLink);
+    $("#apiDiv").hide();
+	$("#mask").hide();
+});
+
 $("#likeButton").click(function(){
 	soundList.push(soundString);
 	like += 1;
@@ -464,7 +471,7 @@ $("#submitFormButton").click(function() {
 		likes: like,
 		dislikes: totalCount-like,
 		generation: generation,
-		rhythmNum: Number(totalCount%generation),
+		rhythmNum: Number(totalCount%generation) || 0,
 		total: totalCount,
 		comments: comments
 	};
@@ -490,14 +497,6 @@ $("#thanksRestartButton").click(function() {
 	setString();
 	makeHTML();
 	changeColorCircles();
-	console.log("soundList: " + soundList);
-	console.log("soundString: " + soundString);
-	console.log("totalCount: " + totalCount);
-	console.log("likes: " + like);
-	console.log("generation: " + generation);
-	console.log("tempo: " + tempo);
-	console.log("playing: " + playing);
-	console.log("initialRhythms: " + initialRhythms);
 });
 
 function saveData(obj){
@@ -518,17 +517,6 @@ function saveData(obj){
 }
 
 //------------------WINDOW RESIZE---------------
-function windowResized() {
-	// sizeChange();
-}
-
-function sizeChange() {
-    // $("svg").height($("#container").width());
-    svg.selectAll("*").remove();
-	makeCircles(16, $("#container").width()*0.5, $("#container").height()*0.5);
-	changeColorCircles();
-}
-
 $(document).ready(function(){
 	$("#helpDiv").show();
 	$("#mask").show();
