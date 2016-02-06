@@ -5,4 +5,4 @@ You can listen to and look at rhythms and like or dislike them. The new “gener
 
 Submit your favourite rhythms and check out the API for all or a selection of submitted rhythms. 
 
-Check this out for more information: https://thespidermen.wordpress.com/2015/12/14/breeding-rhythms/!
+Check this blog post out for more information: https://thespidermen.wordpress.com/2015/12/14/breeding-rhythms/
